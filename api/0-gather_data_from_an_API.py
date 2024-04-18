@@ -1,9 +1,11 @@
 #!/usr/bin/python3
+"""API REST"""
 import requests
 import sys
 
 
 def fetch_employee_todo_list(employee_id):
+    """Function that retrive information from the API REST"""
     API_info = f'https://jsonplaceholder.typicode.com/todos?userId={employee_id}'
     response = requests.get(API_info)
     if response.status_code != 200:
