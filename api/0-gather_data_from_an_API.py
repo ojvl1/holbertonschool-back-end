@@ -4,8 +4,8 @@ import sys
 
 
 def fetch_employee_todo_list(employee_id):
-    url = f'https://jsonplaceholder.typicode.com/todos?userId={employee_id}'
-    response = requests.get(url)
+    API_info = f'https://jsonplaceholder.typicode.com/todos?userId={employee_id}'
+    response = requests.get(API_info)
     if response.status_code != 200:
         print("Error:", response.text)
         return
