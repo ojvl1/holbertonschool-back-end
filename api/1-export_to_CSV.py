@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 """Script to use a REST API for a given employee ID, returns
 information about his/her TODO list progress"""
+import csv
 import requests
 import sys
-import csv
+
+
 
 
 if __name__ == "__main__":
@@ -32,7 +34,7 @@ if __name__ == "__main__":
     csv_format = []
 
     print(f"Employee {employee_name} is done with tasks"
-            f"({total_done_tasks}/{total_tasks}):")
+          f"({total_done_tasks}/{total_tasks}):")
     for task in done_tasks:
         print(f"\t {task['title']}")
 
