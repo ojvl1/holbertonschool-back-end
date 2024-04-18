@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """API REST"""
 import requests
-import sys, argv
+import argv
 
 
 def get_employee(id=None):
