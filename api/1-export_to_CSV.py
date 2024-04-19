@@ -24,18 +24,11 @@ if __name__ == "__main__":
         print("RequestError:", 404)
         sys.exit(1)
 
-    employee_name = data[0]["user"]["name"]
-    total_tasks = len(data)
-    done_tasks = [task for task in data if task["completed"]]
-    total_done_tasks = len(done_tasks)
+    username = data[0]["user"]["username"]
 
-    csv_format = []
-
-    print(f"Employee {employee_name} is done with tasks"
-          f"({total_done_tasks}/{total_tasks}):")
-    for task in done_tasks:
-        print(f"\t {task['title']}")
-
-    with open('USER_ID.csv', 'w', newline='') as csv_file:
-        writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
-        writer.writerows(csv_format)
+    with open(f"{EMPLOYEE_ID}.csv", "w", newline="") as file:
+        writer = csv.writer(file, quoting=csv.QUOTE_NONNUMERIC)
+        for task in data:
+            writer.writerow(
+                [EMPLOYEE_ID, username, str(task["completed"]), task["title"]]
+            )
